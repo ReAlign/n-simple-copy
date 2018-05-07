@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .u-btn-area {
+        margin: 10px 0;
+    }
+    .u-btn-area button {
+        width: 70px;
+        height: 24px;
+        margin-left: 6px;
+        background: #3385ff;
+        border: 0;
+        border-radius: 4px;
+        color: #fff;
+    }
+    .u-need-copy {
+        border: 1px solid #999;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="u-btn-area">
+        copy dom content<button onclick="copy('need-copy')">copy</button>
+    </div>
+    <div id="need-copy" class="u-need-copy">
+        <ol>
+            <li>
+                <span style="font-weight: normal; font-style: normal; color: rgb(153, 51, 255);">这是一个有序列表1</span>
+            </li>
+            <li>
+                <span style="font-weight: normal; font-style: normal; font-size: 18px;">这是一个有序列表2</span>
+            </li>
+            <li>
+                <span style="font-weight: normal; font-style: italic;">这是一个有序列表3</span>
+            </li>
+        </ol>
+    </div>
+
+    <div class="u-btn-area">
+        copy text<button onclick="copyText('need-copy-text')">copy</button>
+    </div>
+    <div id="need-copy-text" class="u-need-copy">
+        这是一段要复制的文本
+    </div>
+
+    <script src="./../dist/simple-copy.js"></script>
+    <script>
+        function copy(id) {
+            const res = SimpleCopy.copy(id);
+            console.log('copy result: ' + res);
+        }
+
+        function copyText(id) {
+            const res = SimpleCopy.copyText(document.getElementById(id).innerText);
+            console.log('copy text result: ' + res);
+        }
+    </script>
+</body>
+
+</html>
